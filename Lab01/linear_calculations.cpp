@@ -33,14 +33,9 @@ int main() {
   double e = 0;
 
   // Input
-  cout << "Write: a1, b1, c1 (cm) in turn: ";
-  cin >> a1 >> b1 >> c1;
-  cout << "Write: a2, b2, c2 (cm) in turn: ";
-  cin >> a2 >> b2 >> c2;
-  cout << "Write: h (cm): ";
-  cin >> h;
+  cin >> a1 >> b1 >> c1 >> a2 >> b2 >> c2 >> h;
 
-
+  // Calculation
   //conversion from centimeters to meters
   a1 = a1 / 100.0;
   b1 = b1 / 100.0;
@@ -49,20 +44,17 @@ int main() {
   b2 = b2 / 100.0;
   c2 = c2 / 100.0;
   h = h / 100.0;
-
-  // Calculation
   //calculation of P (m)
   p1 = (a1 + b1 + c1) / 2;
   p2 = (a2 + b2 + c2) / 2;
   //calculation of S (m)
-  s1 = sqrt(p1 * ((p1 - a1) * (p1 - b1) * (p1 - c1)));
-  s2 = sqrt(p2 * ((p2 - a2) * (p2 - b2) * (p2 - c2)));
+  s1 = sqrt(p1 * (p1 - a1) * (p1 - b1) * (p1 - c1));
+  s2 = sqrt(p2 * (p2 - a2) * (p2 - b2) * (p2 - c2));
   //calculation of E (m)
   e = ((h / 4) * (s1 + 2 * sqrt(s1 * s2) + 3 * s2) / (s1 + sqrt(s1 * s2) + s2));
 
   // Output
-  //answer
-  cout << fixed << setprecision(6) << e;
+  cout << fixed << setprecision(6) << e << "\n";
 
   return 0;
 }
